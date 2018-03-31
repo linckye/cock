@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="PATH" value="logs"/>
+    <property name="PATTERN" value="%date{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{15} [%file:%line] %msg%n"/>
+    <property name="APPLICATION_NAME" value="liquid-worker"/>
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss} %highlight(%-5level) [%thread] %cyan(%logger{15}) [%file:%line] %highlight(%msg) %n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+
+    </appender>
+
+    <appender name="infoAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <file>${PATH}/${APPLICATION_NAME}.log</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${PATH}/${APPLICATION_NAME}.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+
+    </appender>
+
+    <root>
+
+        <level value="INFO"/>
+
+        <!-- test -->
+        <!--<appender-ref ref="consoleAppender"/>-->
+
+        <appender-ref ref="infoAppender"/>
+
+    </root>
+
+</configuration>
