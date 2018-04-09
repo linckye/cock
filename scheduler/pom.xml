@@ -23,6 +23,12 @@
             <artifactId>liquid-test</artifactId>
         </dependency>
 
+        <!-- schedule -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+        </dependency>
+
         <!-- spring -->
         <dependency>
             <groupId>org.springframework</groupId>
