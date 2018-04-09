@@ -117,6 +117,18 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- mybatis -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+            </dependency>
+
+            <!-- jdbc -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+            </dependency>
+
             <!-- util -->
             <dependency>
                 <groupId>joda-time</groupId>
