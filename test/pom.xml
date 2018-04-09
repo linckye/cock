@@ -9,24 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>liquid-repository</artifactId>
+    <artifactId>liquid-test</artifactId>
 
     <dependencies>
 
-        <!-- self -->
-        <dependency>
-            <groupId>org.liquid</groupId>
-            <artifactId>liquid-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.liquid</groupId>
-            <artifactId>liquid-test</artifactId>
-        </dependency>
-
-        <!-- test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

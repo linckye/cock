@@ -11,5 +11,36 @@
 
     <artifactId>liquid-service</artifactId>
 
+    <dependencies>
+
+        <!-- self -->
+        <dependency>
+            <groupId>org.liquid</groupId>
+            <artifactId>liquid-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.liquid</groupId>
+            <artifactId>liquid-repository</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.liquid</groupId>
+            <artifactId>liquid-worker</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.liquid</groupId>
+            <artifactId>liquid-scheduler</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.liquid</groupId>
+            <artifactId>liquid-test</artifactId>
+        </dependency>
+
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+    </dependencies>
 
 </project>

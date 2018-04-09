@@ -15,6 +15,7 @@
         <module>controller</module>
         <module>worker</module>
         <module>scheduler</module>
+        <module>test</module>
     </modules>
 
     <properties>
@@ -33,11 +34,6 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-
     </dependencies>
 
     <dependencyManagement>
@@ -46,12 +42,17 @@
             <!-- self begin -->
             <dependency>
                 <groupId>org.liquid</groupId>
-                <artifactId>liquid-api</artifactId>
+                <artifactId>liquid-common</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>org.liquid</groupId>
-                <artifactId>liquid-common</artifactId>
+                <artifactId>liquid-controller</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-repository</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
@@ -61,12 +62,7 @@
             </dependency>
             <dependency>
                 <groupId>org.liquid</groupId>
-                <artifactId>liquid-scheduler-core</artifactId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>org.liquid</groupId>
-                <artifactId>liquid-scheduler-cluster</artifactId>
+                <artifactId>liquid-service</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
@@ -76,13 +72,9 @@
             </dependency>
             <dependency>
                 <groupId>org.liquid</groupId>
-                <artifactId>liquid-worker-core</artifactId>
+                <artifactId>liquid-test</artifactId>
                 <version>1.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>org.liquid</groupId>
-                <artifactId>liquid-worker-cluster</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <scope>test</scope>
             </dependency>
 
             <!-- test -->
