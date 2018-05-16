@@ -11,5 +11,14 @@
 
     <artifactId>liquid-controller</artifactId>
 
+    <dependencies>
+
+        <!-- self -->
+        <dependency>
+            <groupId>org.liquid</groupId>
+            <artifactId>liquid-service</artifactId>
+        </dependency>
+
+    </dependencies>
 
 </project>
