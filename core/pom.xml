@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>liquid-worker</artifactId>
+    <artifactId>liquid-core</artifactId>
 
     <dependencies>
 
@@ -18,15 +18,11 @@
             <groupId>org.liquid</groupId>
             <artifactId>liquid-common</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.liquid</groupId>
-            <artifactId>liquid-test</artifactId>
-        </dependency>
 
-        <!-- spring -->
+        <!-- test -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
         </dependency>
 
     </dependencies>

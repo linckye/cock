@@ -11,34 +11,5 @@
 
     <artifactId>liquid-common</artifactId>
 
-    <dependencies>
-
-        <!-- self -->
-        <dependency>
-            <groupId>org.liquid</groupId>
-            <artifactId>liquid-test</artifactId>
-        </dependency>
-
-        <!-- util -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-        </dependency>
-
-        <!-- log -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-
-    </dependencies>
 
 </project>
