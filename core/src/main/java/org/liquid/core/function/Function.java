@@ -10,8 +10,8 @@ import org.liquid.core.function.model.FunctionContext;
 public interface Function {
 
     /**
-     *
      * 调用函数
+     * 
      * @param functionContext 函数上下文
      */
     void call(FunctionContext functionContext);
