@@ -19,6 +19,7 @@ public class Blank {
     }
 
     public static boolean isNullOrEmpty(String... strs) {
+        if (strs == null) return true;
         for (String str : strs) {
             if (isNullOrEmpty(str)) return true;
         }
