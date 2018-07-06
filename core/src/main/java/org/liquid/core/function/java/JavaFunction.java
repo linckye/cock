@@ -15,14 +15,17 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 /**
+ * 执行Java函数，入参为jar包所在的文件路径，使用{@link FunctionContext#param(ParameterKey)}设置值{@link JavaFunction#JAR_LOCATION}
+ *
  * @author _Chf
  * @since 07/05/2018
+ * @see FunctionContext#param(ParameterKey) 设置入参
  */
 public class JavaFunction implements Function {
 
     private final Logger logger = LoggerFactory.getLogger(JavaFunction.class);
 
-    private static final ParameterKey<String> JAR_LOCATION = ParameterKey.valueOf("jar-location");
+    public static final ParameterKey<String> JAR_LOCATION = ParameterKey.valueOf("JAR_LOCATION");
 
     @Override
     public void call(FunctionContext functionContext) {

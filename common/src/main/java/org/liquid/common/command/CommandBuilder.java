@@ -54,7 +54,7 @@ public class CommandBuilder {
     @Override
     public String toString() {
         if (Blank.isNullOrEmpty(commands)) {
-            return StringConstant.NONE;
+            return StringConstant.EMPTY;
         }
         return String.join(StringConstant.SPACE, commands);
     }

@@ -9,7 +9,7 @@ package org.liquid.common.contant;
 public interface StringConstant {
 
     /** 空 */
-    String NONE = "";
+    String EMPTY = "";
 
     /** 空格 */
     String SPACE = " ";
