@@ -13,12 +13,6 @@
 
     <dependencies>
 
-        <!-- self -->
-        <dependency>
-            <groupId>org.liquid</groupId>
-            <artifactId>liquid-common</artifactId>
-        </dependency>
-
     </dependencies>
 
 </project>
