@@ -1,6 +1,5 @@
 package org.liquid.core.function.java;
 
-import org.liquid.common.callback.Callback;
 import org.liquid.common.command.Commands;
 import org.liquid.common.command.JavaOptions;
 import org.liquid.common.util.Blank;
@@ -38,7 +37,7 @@ public class JavaFunction implements Function {
         List<String> command = Commands.newJavaCommandBuilder()
                 .withOption(JavaOptions.JAR).withParam(jarLocation)
                 .build();
-        ProcessUtils.start(command, new Callback<Process, String>() {
+        ProcessUtils.start(command, new ProcessUtils.OutputHandler() {
             @Override
             public void onSucceed(Process call, String result) {
             }
