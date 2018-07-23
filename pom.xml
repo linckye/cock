@@ -15,6 +15,7 @@
         <module>client</module>
         <module>service</module>
         <module>controller</module>
+        <module>test</module>
     </modules>
 
     <properties>
@@ -68,6 +69,12 @@
                 <groupId>org.liquid</groupId>
                 <artifactId>liquid-client</artifactId>
                 <version>${liquid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-test</artifactId>
+                <version>${liquid.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <!-- base dependency management -->
