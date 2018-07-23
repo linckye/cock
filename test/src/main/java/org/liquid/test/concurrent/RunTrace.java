@@ -2,6 +2,7 @@ package org.liquid.test.concurrent;
 
 import lombok.ToString;
 
+import javax.annotation.Nonnull;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -35,7 +36,8 @@ public class RunTrace {
     /**
      * 是否运行在其之前
      */
-    public boolean isRunBefore(RunTrace... runTraces) {
+    public boolean isRunBefore(
+            @Nonnull RunTrace... runTraces) {
         return Arrays.stream(runTraces)
                 .allMatch(runTrace -> this.runOrderCount < runTrace.runOrderCount);
     }
@@ -43,14 +45,16 @@ public class RunTrace {
     /**
      * 是否运行在其之后
      */
-    public boolean isRunAfter(RunTrace... runTraces) {
+    public boolean isRunAfter(
+            @Nonnull RunTrace... runTraces) {
         return !isRunBefore(runTraces);
     }
 
     /**
      * 是否运行在同一线程
      */
-    public boolean isRunOnTheSameThread(RunTrace... runTraces) {
+    public boolean isRunOnTheSameThread(
+            @Nonnull RunTrace... runTraces) {
         return Arrays.stream(runTraces)
                 .allMatch(runTrace -> this.runThreadId.equals(runTrace.runThreadId));
     }
@@ -58,7 +62,8 @@ public class RunTrace {
     /**
      * 是否运行在不同线程
      */
-    public boolean isRunOnTheDifferentThread(RunTrace... runTraces) {
+    public boolean isRunOnTheDifferentThread(
+            @Nonnull RunTrace... runTraces) {
         return !isRunOnTheSameThread(runTraces);
     }
 

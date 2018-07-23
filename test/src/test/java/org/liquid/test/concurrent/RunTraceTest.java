@@ -32,7 +32,6 @@ public class RunTraceTest {
 
         assertTrue(runTrace1.isRunOnTheSameThread(runTrace2));
         assertTrue(runTrace3.isRunOnTheDifferentThread(runTrace1));
-
     }
 
 }
