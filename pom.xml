@@ -16,6 +16,7 @@
         <module>service</module>
         <module>controller</module>
         <module>test</module>
+        <module>api/api-java</module>
     </modules>
 
     <properties>
@@ -32,7 +33,6 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>23.0</version>
         </dependency>
         <dependency>
             <groupId>joda-time</groupId>
@@ -97,6 +97,11 @@
                 <version>${liquid.version}</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-api-java</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
 
             <!-- base dependency management -->
             <dependency>
@@ -105,6 +110,13 @@
                 <version>Cairo-SR1</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- utils -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>23.0</version>
             </dependency>
 
         </dependencies>

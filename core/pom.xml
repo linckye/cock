@@ -20,7 +20,16 @@
         </dependency>
         <dependency>
             <groupId>org.liquid</groupId>
+            <artifactId>liquid-api-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.liquid</groupId>
             <artifactId>liquid-test</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
         </dependency>
 
     </dependencies>
