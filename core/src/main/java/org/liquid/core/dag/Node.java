@@ -1,7 +1,7 @@
 package org.liquid.core.dag;
 
 /**
- * 代表 DAG 中一个节点
+ * Node 是 DAG 中的一个节点
  *
  * @author linckye 2018-07-16
  */

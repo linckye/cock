@@ -2,7 +2,6 @@ package org.liquid.core.dag;
 
 import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
-import lombok.Getter;
 import lombok.ToString;
 
 import java.util.*;
@@ -16,7 +15,6 @@ import java.util.stream.Collectors;
 @ToString
 public class DAG {
 
-    @Getter
     private MutableValueGraph<Node, Edge> graph = ValueGraphBuilder.directed().build();
 
     public Set<Node> nodes() {

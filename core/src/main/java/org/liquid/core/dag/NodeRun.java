@@ -1,6 +1,6 @@
 package org.liquid.core.dag;
 
-import lombok.Data;
+import lombok.*;
 import lombok.experimental.Accessors;
 import org.joda.time.DateTime;
 
@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 节点运行情况
+ * 一次 Node 的运行情况、参数和为完成运行所附加的上下文信息
  *
  * @author linckye 2018-07-26
  */
@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class NodeRun {
 
     /**
-     * 此次运行的节点
+     * 运行的 Node
      */
     private Node node;
 
@@ -32,9 +32,9 @@ public class NodeRun {
     private DateTime endTime;
 
     /**
-     * 节点状态
+     * 该 Node 的运行状态
      */
-    private NodeStatus nodeStatus;
+    private NodeRunStatus nodeRunStatus;
 
     /**
      * 异常
@@ -42,11 +42,13 @@ public class NodeRun {
     private Throwable throwable;
 
     /**
-     * 到达节点分支数量计数器
+     * 到达该节点的分支数量计数器，DAG 中多分支合并为单分支时的合并节点的调度，应由最后到达分支决定
      */
-    private AtomicInteger arrivalCounter;
+    private AtomicInteger branchArrivalCounter;
 
-
+    /**
+     * NodeRunListener 集合，监听 DAG 运行
+     */
     private Set<NodeRunListener> nodeRunListeners;
 
 }

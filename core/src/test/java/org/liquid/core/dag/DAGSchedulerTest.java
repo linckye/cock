@@ -76,11 +76,15 @@ public class DAGSchedulerTest {
             }
         })));
 
-        latch.await(2, TimeUnit.SECONDS);
+        latch.await(10, TimeUnit.SECONDS);
 
         DAGRun dagRun = Temp.get();
+
+        // check DAGRun
         assertNotNull(dagRun);
-        assertEquals(DAGStatus.FINISHED, dagRun.dagStatus());
+        assertEquals(DAGRunStatus.FINISHED, dagRun.dagRunStatus());
+        assertNotNull(dagRun.startTime());
+        assertNotNull(dagRun.endTime());
 
         assertNotNull(dagRun.nodeRunMap());
 
@@ -94,17 +98,12 @@ public class DAGSchedulerTest {
         assertNotNull(dagRun.nodeRunMap().get(node8));
         assertNotNull(dagRun.nodeRunMap().get(node9));
 
-        assertEquals(NodeStatus.FINISHED, dagRun.nodeRunMap().get(node1).nodeStatus());
-
-        assertNotNull(node1.runTrace());
-        assertNotNull(node2.runTrace());
-        assertNotNull(node3.runTrace());
-        assertNotNull(node4.runTrace());
-        assertNotNull(node5.runTrace());
-        assertNotNull(node6.runTrace());
-        assertNotNull(node7.runTrace());
-        assertNotNull(node8.runTrace());
-        assertNotNull(node9.runTrace());
+        dagRun.nodeRunMap().values().forEach(nodeRun -> {
+            assertEquals(NodeRunStatus.FINISHED, nodeRun.nodeRunStatus());
+            assertNotNull(nodeRun.startTime());
+            assertNotNull(nodeRun.endTime());
+            assertNotNull(((LocalNode) nodeRun.node()).runTrace());
+        });
 
         /*
                1 -* 3 -* 5 -* 7
