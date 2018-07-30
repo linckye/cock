@@ -18,11 +18,13 @@
             <groupId>org.liquid</groupId>
             <artifactId>liquid-common</artifactId>
         </dependency>
-
-        <!-- test -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.liquid</groupId>
+            <artifactId>liquid-api-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.liquid</groupId>
+            <artifactId>liquid-test</artifactId>
         </dependency>
 
     </dependencies>

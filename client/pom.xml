@@ -11,5 +11,8 @@
 
     <artifactId>liquid-client</artifactId>
 
+    <dependencies>
+
+    </dependencies>
 
 </project>
