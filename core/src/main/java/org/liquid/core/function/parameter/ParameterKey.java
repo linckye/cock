@@ -1,6 +1,6 @@
 package org.liquid.core.function.parameter;
 
-import org.liquid.common.annotation.NotBlank;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.liquid.common.util.Blank;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -24,7 +24,7 @@ public final class ParameterKey<T> {
         this.id = ID_GENERATOR.getAndDecrement();
     }
 
-    public static <T> ParameterKey<T> valueOf(@NotBlank String name) {
+    public static <T> ParameterKey<T> valueOf(@NonNull String name) {
         if (Blank.isNullOrEmpty(name)) {
             throw new NullPointerException("name");
         }

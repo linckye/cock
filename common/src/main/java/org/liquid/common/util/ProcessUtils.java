@@ -1,7 +1,6 @@
 package org.liquid.common.util;
 
-import org.liquid.common.annotation.NotEmpty;
-import org.liquid.common.annotation.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.liquid.common.callback.Callback;
 
 import java.io.BufferedReader;
@@ -29,8 +28,8 @@ public abstract class ProcessUtils {
      * @param command 开启子进程的参数
      * @param outputHandler 子进程的输出流回调方法
      */
-    public static void start(@NotEmpty List<String> command,
-                             @NotNull OutputHandler outputHandler) {
+    public static void start(@NonNull List<String> command,
+                             @NonNull OutputHandler outputHandler) {
         start(command, outputHandler, DEFAULT_PROCESS_EXECUTOR);
     }
 
@@ -41,9 +40,9 @@ public abstract class ProcessUtils {
      * @param outputHandler 子进程的输出流回调方法，对每一行进行回调
      * @param executor 实际启动的线程池
      */
-    public static void start(@NotEmpty List<String> command,
-                             @NotNull OutputHandler outputHandler,
-                             @NotNull Executor executor) {
+    public static void start(@NonNull List<String> command,
+                             @NonNull OutputHandler outputHandler,
+                             @NonNull Executor executor) {
         Objects.requireNonNull(command);
         Objects.requireNonNull(outputHandler);
         Objects.requireNonNull(executor);

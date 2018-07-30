@@ -19,6 +19,9 @@
 
     <properties>
         <liquid.version>1.0-SNAPSHOT</liquid.version>
+
+        <!-- utils -->
+        <checkerframework.version>2.5.3</checkerframework.version>
     </properties>
 
     <repositories>
@@ -31,6 +34,13 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- checkerframework -->
+        <dependency>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker-qual</artifactId>
+            <version>${checkerframework.version}</version>
         </dependency>
 
     </dependencies>
