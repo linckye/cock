@@ -1,7 +1,6 @@
 package org.liquid.common.util;
 
-import org.liquid.common.annotation.NotEmpty;
-import org.liquid.common.annotation.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.liquid.common.callback.Callback;
 
 import java.io.BufferedReader;
@@ -27,25 +26,25 @@ public abstract class ProcessUtils {
      * 启动新的子进程
      *
      * @param command 开启子进程的参数
-     * @param outputCallBack 子进程的输出流回调方法
+     * @param outputHandler 子进程的输出流回调方法
      */
-    public static void start(@NotEmpty List<String> command,
-                             @NotNull Callback<Process, String> outputCallBack) {
-        start(command, outputCallBack, DEFAULT_PROCESS_EXECUTOR);
+    public static void start(@NonNull List<String> command,
+                             @NonNull OutputHandler outputHandler) {
+        start(command, outputHandler, DEFAULT_PROCESS_EXECUTOR);
     }
 
     /**
      * 指定线程池启动新的子进程
      *
      * @param command 开启子进程的参数
-     * @param outputCallBack 子进程的输出流回调方法，对每一行进行回调
+     * @param outputHandler 子进程的输出流回调方法，对每一行进行回调
      * @param executor 实际启动的线程池
      */
-    public static void start(@NotEmpty List<String> command,
-                             @NotNull Callback<Process, String> outputCallBack,
-                             @NotNull Executor executor) {
+    public static void start(@NonNull List<String> command,
+                             @NonNull OutputHandler outputHandler,
+                             @NonNull Executor executor) {
         Objects.requireNonNull(command);
-        Objects.requireNonNull(outputCallBack);
+        Objects.requireNonNull(outputHandler);
         Objects.requireNonNull(executor);
         executor.execute(() -> {
             ProcessBuilder builder = new ProcessBuilder(command);
@@ -56,12 +55,17 @@ public abstract class ProcessUtils {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
-                    outputCallBack.onSucceed(process, line);
+                    outputHandler.onSucceed(process, line);
                 }
             } catch (IOException e) {
-                outputCallBack.onFailed(process, null, e);
+                outputHandler.onFailed(process, null, e);
             }
         });
     }
+
+    /**
+     * 子进程输出的每一行回调接口
+     */
+    public interface OutputHandler extends Callback<Process, String> {}
 
 }

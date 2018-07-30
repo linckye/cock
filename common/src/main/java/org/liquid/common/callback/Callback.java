@@ -1,6 +1,6 @@
 package org.liquid.common.callback;
 
-import org.liquid.common.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * 回调基础接口
