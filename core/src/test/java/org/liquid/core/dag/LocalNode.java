@@ -1,5 +1,6 @@
 package org.liquid.core.dag;
 
+import com.google.common.base.Preconditions;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -21,7 +22,7 @@ public class LocalNode implements Node , Runnable {
     private String msg;
 
     public synchronized void run() {
-        if (!Blank.isNull(runTrace)) throw new RuntimeException(this + " already run");
+        Preconditions.checkState(Blank.isNull(runTrace), this + " already run");
         runTrace = RunTrace.get();
     }
 

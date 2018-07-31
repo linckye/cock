@@ -1,8 +1,6 @@
 package org.liquid.core.dag;
 
 import com.google.common.collect.Sets;
-import lombok.Data;
-import lombok.experimental.Accessors;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.liquid.test.concurrent.Temp;
@@ -21,8 +19,6 @@ import static org.junit.Assert.*;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-@Data
-@Accessors(chain = true, fluent = true)
 public class DAGSchedulerTest {
 
     @Inject
@@ -52,54 +48,55 @@ public class DAGSchedulerTest {
         dag.node(node8);
         dag.node(node9);
 
-        dag.edge(node1, node3, Edge.SIMPLE);
-        dag.edge(node2, node4, Edge.SIMPLE);
-        dag.edge(node3, node4, Edge.SIMPLE);
-        dag.edge(node3, node5, Edge.SIMPLE);
-        dag.edge(node4, node6, Edge.SIMPLE);
-        dag.edge(node6, node5, Edge.SIMPLE);
-        dag.edge(node5, node7, Edge.SIMPLE);
-        dag.edge(node6, node8, Edge.SIMPLE);
+        dag.edge(node1, node3, Edge.simple());
+        dag.edge(node2, node4, Edge.simple());
+        dag.edge(node3, node4, Edge.simple());
+        dag.edge(node3, node5, Edge.simple());
+        dag.edge(node4, node6, Edge.simple());
+        dag.edge(node6, node5, Edge.simple());
+        dag.edge(node5, node7, Edge.simple());
+        dag.edge(node6, node8, Edge.simple());
 
         CountDownLatch latch = new CountDownLatch(1);
 
-        dagScheduler.schedule(new DAGRunParameters().dag(dag).dagRunListeners(Sets.newHashSet(new DAGRunListener() {
+        dagScheduler.schedule(new DAGScheduleParameters().dag(dag).dagScheduleListeners(Sets.newHashSet(new DAGScheduleListener() {
             @Override
-            public void onSuccess(DAGRun dagRun) {
+            public void onSuccess(DAGSchedule dagSchedule) {
                 latch.countDown();
-                Temp.set(dagRun);
+                Temp.set(dagSchedule);
             }
 
             @Override
-            public void onFailure(DAGRun dagRun) {
-                Temp.set(dagRun);
+            public void onFailure(DAGSchedule dagSchedule) {
+                latch.countDown();
+                Temp.set(dagSchedule);
             }
         })));
 
         latch.await(10, TimeUnit.SECONDS);
 
-        DAGRun dagRun = Temp.get();
+        DAGSchedule dagSchedule = Temp.get();
 
-        // check DAGRun
-        assertNotNull(dagRun);
-        assertEquals(DAGRunStatus.FINISHED, dagRun.dagRunStatus());
-        assertNotNull(dagRun.startTime());
-        assertNotNull(dagRun.endTime());
+        // check DAGSchedule
+        assertNotNull(dagSchedule);
+        assertEquals(DAGScheduleStatus.FINISHED, dagSchedule.dagScheduleStatus());
+        assertNotNull(dagSchedule.startTime());
+        assertNotNull(dagSchedule.endTime());
 
-        assertNotNull(dagRun.nodeRunMap());
+        assertNotNull(dagSchedule.nodeDistributionMap());
 
-        assertNotNull(dagRun.nodeRunMap().get(node1));
-        assertNotNull(dagRun.nodeRunMap().get(node2));
-        assertNotNull(dagRun.nodeRunMap().get(node3));
-        assertNotNull(dagRun.nodeRunMap().get(node4));
-        assertNotNull(dagRun.nodeRunMap().get(node5));
-        assertNotNull(dagRun.nodeRunMap().get(node6));
-        assertNotNull(dagRun.nodeRunMap().get(node7));
-        assertNotNull(dagRun.nodeRunMap().get(node8));
-        assertNotNull(dagRun.nodeRunMap().get(node9));
+        assertNotNull(dagSchedule.nodeDistributionMap().get(node1));
+        assertNotNull(dagSchedule.nodeDistributionMap().get(node2));
+        assertNotNull(dagSchedule.nodeDistributionMap().get(node3));
+        assertNotNull(dagSchedule.nodeDistributionMap().get(node4));
+        assertNotNull(dagSchedule.nodeDistributionMap().get(node5));
+        assertNotNull(dagSchedule.nodeDistributionMap().get(node6));
+        assertNotNull(dagSchedule.nodeDistributionMap().get(node7));
+        assertNotNull(dagSchedule.nodeDistributionMap().get(node8));
+        assertNotNull(dagSchedule.nodeDistributionMap().get(node9));
 
-        dagRun.nodeRunMap().values().forEach(nodeRun -> {
-            assertEquals(NodeRunStatus.FINISHED, nodeRun.nodeRunStatus());
+        dagSchedule.nodeDistributionMap().values().forEach(nodeRun -> {
+            assertEquals(NodeDistributionStatus.FINISHED, nodeRun.nodeDistributionStatus());
             assertNotNull(nodeRun.startTime());
             assertNotNull(nodeRun.endTime());
             assertNotNull(((LocalNode) nodeRun.node()).runTrace());

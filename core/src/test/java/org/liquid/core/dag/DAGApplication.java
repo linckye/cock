@@ -10,8 +10,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * DAG 模块 SpringBoot 测试配置类
- *
  * @author linckye 2018-07-27
  */
 @SpringBootApplication
