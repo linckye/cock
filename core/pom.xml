@@ -27,6 +27,12 @@
             <artifactId>liquid-test</artifactId>
         </dependency>
 
+        <!-- scheduler -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>
