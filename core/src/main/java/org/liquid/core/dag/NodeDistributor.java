@@ -1,5 +1,7 @@
 package org.liquid.core.dag;
 
+import javax.annotation.Nonnull;
+
 /**
  * {@code Node} 发布器，负责将 {@code Node} 发布给工作者 。
  *
@@ -8,6 +10,7 @@ package org.liquid.core.dag;
 public interface NodeDistributor {
 
     /** 将 {@code Node} 发布给工作者。**/
-    void distribute(DAGSchedule dagSchedule, NodeDistribution nodeDistribution);
+    void distribute(@Nonnull DAGSchedule dagSchedule,
+                    @Nonnull NodeDistribution nodeDistribution);
 
 }

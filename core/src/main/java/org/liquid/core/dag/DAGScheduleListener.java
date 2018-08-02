@@ -1,5 +1,6 @@
 package org.liquid.core.dag;
 
+import javax.annotation.Nonnull;
 import java.util.EventListener;
 
 /**
@@ -11,9 +12,9 @@ public interface DAGScheduleListener
         extends EventListener {
 
     /** {@code DAG} 调度成功时对 {@code dagSchedule} 产生回调。**/
-    void onSuccess(DAGSchedule dagSchedule);
+    void onSuccess(@Nonnull DAGSchedule dagSchedule);
 
     /** {@code DAG} 调度失败时对 {@code dagSchedule} 产生回调。**/
-    void onFailure(DAGSchedule dagSchedule);
+    void onFailure(@Nonnull DAGSchedule dagSchedule);
 
 }

@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 import org.joda.time.DateTime;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -38,7 +39,7 @@ public class DAGSchedulerImpl
     private NodeDistributionListener nodeScheduledListener = new NodeDistributionListener() {
 
         @Override
-        public void onCompletion(DAGSchedule dagSchedule, NodeDistribution nodeDistribution) {
+        public void onCompletion(@Nonnull DAGSchedule dagSchedule, @Nonnull NodeDistribution nodeDistribution) {
             nodeDistribution.nodeDistributionStatus(NodeDistributionStatus.FINISHED).endTime(new DateTime());
 
             DAG dag = dagSchedule.dag();
@@ -58,7 +59,7 @@ public class DAGSchedulerImpl
         }
 
         @Override
-        public void onFailure(DAGSchedule dagSchedule, NodeDistribution nodeDistribution, Throwable throwable) {
+        public void onFailure(@Nonnull DAGSchedule dagSchedule, @Nonnull NodeDistribution nodeDistribution, @Nonnull Throwable throwable) {
             System.out.println(Throwables.getStackTraceAsString(throwable));
             nodeDistribution.nodeDistributionStatus(NodeDistributionStatus.FAILED)
                     .endTime(new DateTime())
@@ -72,7 +73,7 @@ public class DAGSchedulerImpl
 
     /** {@inheritDoc} **/
     @Override
-    public void schedule(DAGScheduleParameters dagScheduleParameters) {
+    public void schedule(@Nonnull DAGScheduleParameters dagScheduleParameters) {
         Preconditions.checkNotNull(dagScheduleParameters.dag(), "Null dag");
         scheduledPool.execute(() -> {
             Set<DAGScheduleListener> dagScheduleListeners = Optional
@@ -108,7 +109,7 @@ public class DAGSchedulerImpl
 
     /** {@inheritDoc} **/
     @Override
-    public void registerDistributor(NodeDistributor nodeDistributor) {
+    public void nodeDistributor(@Nonnull NodeDistributor nodeDistributor) {
         this.nodeDistributor = nodeDistributor;
     }
 

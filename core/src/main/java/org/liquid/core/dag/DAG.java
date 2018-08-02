@@ -2,8 +2,10 @@ package org.liquid.core.dag;
 
 import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import lombok.ToString;
 
+import javax.annotation.Nonnull;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -36,6 +38,7 @@ public class DAG {
      *
      * @return 连接两节点的旧边，不存在时为空。
      */
+    @CanIgnoreReturnValue
     public Edge edge(Node predecessor,
                      Node successor,
                      Edge edge) {

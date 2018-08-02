@@ -3,6 +3,7 @@ package org.liquid.core.dag;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import javax.annotation.Nonnull;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.concurrent.ExecutorService;
@@ -18,7 +19,7 @@ public class LoacalNodeDistributor implements NodeDistributor {
     private ExecutorService distributedPool;
 
     @Override
-    public void distribute(DAGSchedule dagSchedule, NodeDistribution nodeDistribution) {
+    public void distribute(@Nonnull DAGSchedule dagSchedule, @Nonnull NodeDistribution nodeDistribution) {
         Runnable node;
         try {
             node = (Runnable) nodeDistribution.node();

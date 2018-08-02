@@ -7,6 +7,7 @@ import org.liquid.test.concurrent.Temp;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Nonnull;
 import javax.inject.Inject;
 
 import java.util.concurrent.CountDownLatch;
@@ -61,13 +62,13 @@ public class DAGSchedulerTest {
 
         dagScheduler.schedule(new DAGScheduleParameters().dag(dag).dagScheduleListeners(Sets.newHashSet(new DAGScheduleListener() {
             @Override
-            public void onSuccess(DAGSchedule dagSchedule) {
+            public void onSuccess(@Nonnull DAGSchedule dagSchedule) {
                 latch.countDown();
                 Temp.set(dagSchedule);
             }
 
             @Override
-            public void onFailure(DAGSchedule dagSchedule) {
+            public void onFailure(@Nonnull DAGSchedule dagSchedule) {
                 latch.countDown();
                 Temp.set(dagSchedule);
             }
