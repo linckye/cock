@@ -76,12 +76,10 @@ public class DAGSchedulerImpl
     public void schedule(@Nonnull DAGScheduleParameters dagScheduleParameters) {
         Preconditions.checkNotNull(dagScheduleParameters.dag(), "Null dag");
         scheduledPool.execute(() -> {
-            Set<DAGScheduleListener> dagScheduleListeners = Optional
-                    .ofNullable(dagScheduleParameters.dagScheduleListeners())
-                    .orElse(Sets.newHashSet());
-            Set<NodeDistributionListener> nodeDistributionListeners = Optional
-                    .ofNullable(dagScheduleParameters.nodeDistributionListeners())
-                    .orElse(Sets.newHashSet());
+            Set<DAGScheduleListener> dagScheduleListeners = Sets.newHashSet(
+                    dagScheduleParameters.dagScheduleListeners());
+            Set<NodeDistributionListener> nodeDistributionListeners = Sets.newHashSet(
+                    dagScheduleParameters.nodeDistributionListeners());
             nodeDistributionListeners.add(nodeScheduledListener);
 
             DAGSchedule dagSchedule = new DAGSchedule()
