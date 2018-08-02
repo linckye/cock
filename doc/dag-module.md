@@ -6,11 +6,11 @@
 
 假设我们有一个 *DAG*，其依赖关系如下图：
 
-![dag](/Users/linckye/Projects/GitHub/liquid/doc/images/dag.png)
+![dag](images/dag.png)
 
 则此 *DAG* 调度情况如下：
 
-![dag-schedule](/Users/linckye/Projects/GitHub/liquid/doc/images/dag-schedule.png)
+![dag-schedule](images/dag-schedule.png)
 
 ### Core components
 
