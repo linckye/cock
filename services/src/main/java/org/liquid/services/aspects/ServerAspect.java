@@ -9,8 +9,11 @@ import org.liquid.client.model.Response;
 import org.springframework.stereotype.Component;
 
 import static org.liquid.client.model.Codes.*;
+import static org.liquid.common.utils.Blank.*;
 
 /**
+ * 对 {@code .*ServiceServer} 进行增强.
+ *
  * @author linckye 2018-08-16
  */
 @Component
@@ -18,13 +21,17 @@ import static org.liquid.client.model.Codes.*;
 @Slf4j
 public class ServerAspect {
 
-    @Pointcut(
-            "execution(* org.liquid.*.client.*Service.*(..))"
-    )
+    @Pointcut("execution(* org.liquid..*.*ServiceServer.*(..))")
     private void serverPointCut() {}
 
     @Around("ServerAspect.serverPointCut()")
     public Object handleError(ProceedingJoinPoint proceedingJoinPoint) {
+        // check args
+        if (containsNullOrNoneElements(proceedingJoinPoint.getArgs())) return new Response()
+                .code(ILLEGAL_ARGUMENT)
+                .message("Null request");
+
+        // handle throwable
         try {
             return proceedingJoinPoint.proceed();
         } catch (Throwable t) {
