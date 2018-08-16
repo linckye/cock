@@ -38,21 +38,20 @@ public class Response implements Serializable {
         return t;
     }
 
+    public <T extends Response> T from(Response other) {
+        this.code = other.code;
+        this.message = other.message;
+        @SuppressWarnings("unchecked")
+        T t = (T) this;
+        return t;
+    }
+
     public boolean successful() {
         return code == SUCCESS;
     }
 
     public boolean failed() {
         return code != SUCCESS;
-    }
-
-    public static <T extends Response> T failure(Response other) {
-        Response response = new Response();
-        response.code = other.code;
-        response.message = other.message;
-        @SuppressWarnings("unchecked")
-        T t = (T) response;
-        return t;
     }
 
 }

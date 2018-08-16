@@ -26,7 +26,6 @@ public class ServiceServerAspect {
     @Around("ServiceServerAspect.serverPointCut()")
     @SuppressWarnings("unchecked")
     public Object handlerMethod(ProceedingJoinPoint proceedingJoinPoint) throws Exception {
-
         // check args
         if (containsNullOrNoneElements(proceedingJoinPoint.getArgs()))
             return ((Class<? extends Response>) ((MethodSignature) proceedingJoinPoint.getSignature()).getReturnType())
