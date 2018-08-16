@@ -2,6 +2,7 @@ package org.liquid.client.model.dags;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.liquid.client.model.Request;
 
@@ -13,6 +14,7 @@ import java.io.Serializable;
 @Data
 @Accessors(chain = true, fluent = true)
 @EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 public class GetDagRequest
         extends Request
         implements Serializable {
