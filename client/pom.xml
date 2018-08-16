@@ -12,7 +12,15 @@
     <artifactId>liquid-client</artifactId>
 
     <dependencies>
-
+        <!-- self -->
+        <dependency>
+            <groupId>org.liquid</groupId>
+            <artifactId>liquid-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.liquid</groupId>
+            <artifactId>liquid-test</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

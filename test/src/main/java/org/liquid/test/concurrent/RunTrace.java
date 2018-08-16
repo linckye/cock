@@ -18,58 +18,42 @@ import java.util.concurrent.atomic.AtomicLong;
 @ToString
 public class RunTrace {
 
-    /**
-     * 运行线程 id
-     */
+    /** 运行线程 id. **/
     private Long runThreadId;
 
-    /**
-     * 运行先后顺序计数
-     */
+    /** 运行先后顺序计数. **/
     private Long runOrderCount;
 
-    /**
-     * 运行先后顺序计数器
-     */
+    /** 运行先后顺序计数器. **/
     private static final AtomicLong runOrderCounter = new AtomicLong();
 
-    /**
-     * 是否运行在其之前
-     */
+    /** 是否运行在其之前. **/
     public boolean isRunBefore(
             @Nonnull RunTrace... runTraces) {
         return Arrays.stream(runTraces)
                 .allMatch(runTrace -> this.runOrderCount < runTrace.runOrderCount);
     }
 
-    /**
-     * 是否运行在其之后
-     */
+    /** 是否运行在其之后. **/
     public boolean isRunAfter(
             @Nonnull RunTrace... runTraces) {
         return !isRunBefore(runTraces);
     }
 
-    /**
-     * 是否运行在同一线程
-     */
+    /** 是否运行在同一线程. **/
     public boolean isRunOnTheSameThread(
             @Nonnull RunTrace... runTraces) {
         return Arrays.stream(runTraces)
                 .allMatch(runTrace -> this.runThreadId.equals(runTrace.runThreadId));
     }
 
-    /**
-     * 是否运行在不同线程
-     */
+    /** 是否运行在不同线程. **/
     public boolean isRunOnTheDifferentThread(
             @Nonnull RunTrace... runTraces) {
         return !isRunOnTheSameThread(runTraces);
     }
 
-    /**
-     * 获取当前运行轨迹
-     */
+    /** 获取当前运行轨迹. **/
     public static RunTrace get() {
         RunTrace runTrace = new RunTrace();
         runTrace.runThreadId = Thread.currentThread().getId();

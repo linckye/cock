@@ -9,47 +9,41 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>common</module>
-        <module>core</module>
-        <module>repository</module>
         <module>client</module>
-        <module>service</module>
-        <module>controller</module>
+        <module>common</module>
+        <module>function-api/java</module>
+        <module>repositories</module>
+        <module>services</module>
         <module>test</module>
-        <module>api/api-java</module>
+        <!-- scheduler -->
+        <module>scheduler</module>
+        <module>scheduler/client</module>
+        <module>scheduler/core</module>
+        <module>scheduler/deployer</module>
+        <module>scheduler/repositories</module>
+        <module>scheduler/services</module>
+        <!-- web -->
+        <module>web</module>
+        <module>web/client</module>
+        <module>web/controllers</module>
+        <module>web/deployer</module>
+        <module>web/repositories</module>
+        <module>web/services</module>
+        <!-- worker -->
+        <module>worker</module>
+        <module>worker/client</module>
+        <module>worker/core</module>
+        <module>worker/deployer</module>
+        <module>worker/repositories</module>
+        <module>worker/services</module>
     </modules>
 
     <properties>
+        <!-- version -->
         <liquid.version>1.0-SNAPSHOT</liquid.version>
-
-        <!-- utils -->
-        <checkerframework.version>2.5.3</checkerframework.version>
     </properties>
 
-    <repositories>
-
-    </repositories>
-
     <dependencies>
-
-        <!-- utils -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-        </dependency>
-
         <!-- test -->
         <dependency>
             <groupId>junit</groupId>
@@ -57,34 +51,24 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
         <!-- annotation -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-
-        <!-- checkerframework -->
-        <dependency>
-            <groupId>org.checkerframework</groupId>
-            <artifactId>checker-qual</artifactId>
-            <version>${checkerframework.version}</version>
-        </dependency>
-
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
-
             <!-- self -->
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-client</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.liquid</groupId>
                 <artifactId>liquid-common</artifactId>
@@ -92,27 +76,17 @@
             </dependency>
             <dependency>
                 <groupId>org.liquid</groupId>
-                <artifactId>liquid-core</artifactId>
+                <artifactId>liquid-function-api-java</artifactId>
                 <version>${liquid.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.liquid</groupId>
-                <artifactId>liquid-repository</artifactId>
+                <artifactId>liquid-repositories</artifactId>
                 <version>${liquid.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.liquid</groupId>
-                <artifactId>liquid-service</artifactId>
-                <version>${liquid.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.liquid</groupId>
-                <artifactId>liquid-controller</artifactId>
-                <version>${liquid.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.liquid</groupId>
-                <artifactId>liquid-client</artifactId>
+                <artifactId>liquid-services</artifactId>
                 <version>${liquid.version}</version>
             </dependency>
             <dependency>
@@ -121,12 +95,84 @@
                 <version>${liquid.version}</version>
                 <scope>test</scope>
             </dependency>
+            <!-- scheduler -->
             <dependency>
                 <groupId>org.liquid</groupId>
-                <artifactId>liquid-api-java</artifactId>
+                <artifactId>liquid-scheduler-client</artifactId>
                 <version>${liquid.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-scheduler-core</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-scheduler-deployer</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-scheduler-repositories</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-scheduler-services</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
+            <!-- web -->
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-web-client</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-web-controllers</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-web-deployer</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-web-repositories</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-web-services</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
+            <!-- worker -->
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-worker-client</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-worker-core</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-worker-deployer</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-worker-repositories</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
+                <artifactId>liquid-worker-services</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
             <!-- base dependency management -->
             <dependency>
                 <groupId>io.spring.platform</groupId>
@@ -135,19 +181,18 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <!-- utils -->
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>23.0</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
     <build>
         <plugins>
+            <!-- jdk compiler -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
