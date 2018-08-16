@@ -18,19 +18,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 /** {@code DagScheduler} 实现。**/
 @Data
 @Accessors(chain = true, fluent = true)
-@Component
 public class DagSchedulerImpl
         implements DagScheduler {
 
     /** {@code Dag } 调度池。**/
-    @Autowired
     private ExecutorService scheduledPool;
 
     /** {@code Node } 发布池。**/
-    @Autowired
     private ExecutorService distributedPool;
 
-    @Autowired
     private NodeDistributor nodeDistributor;
 
     private List<DagScheduleListener> dagScheduleListeners = Lists.newArrayList();
