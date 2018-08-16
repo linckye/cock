@@ -78,4 +78,12 @@ public class Blank {
         return byteArray == null || byteArray.length == 0;
     }
 
+    public static boolean containsNullOrNoneElements(Object[] objectArray) {
+        if (isNullOrEmpty(objectArray)) return true;
+        for (Object object : objectArray) {
+            if (object == null) return true;
+        }
+        return false;
+    }
+
 }
