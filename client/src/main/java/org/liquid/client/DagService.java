@@ -1,7 +1,7 @@
 package org.liquid.client;
 
-import org.liquid.client.model.dags.GetDagRequest;
-import org.liquid.client.model.dags.GetDagResponse;
+import org.liquid.client.models.dags.GetDagRequest;
+import org.liquid.client.models.dags.GetDagResponse;
 
 /**
  * @author linckye 2018-08-16

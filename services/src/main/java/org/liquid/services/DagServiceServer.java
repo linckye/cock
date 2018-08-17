@@ -3,8 +3,9 @@ package org.liquid.services;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.liquid.client.DagService;
-import org.liquid.client.model.dags.GetDagRequest;
-import org.liquid.client.model.dags.GetDagResponse;
+import org.liquid.client.models.Codes;
+import org.liquid.client.models.dags.GetDagRequest;
+import org.liquid.client.models.dags.GetDagResponse;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,7 +20,7 @@ public class DagServiceServer
     @Override
     public GetDagResponse get(GetDagRequest getDagRequest) {
         // TODO
-        return null;
+        return new GetDagResponse().code(Codes.RESOURCE_NOT_FOUND).message("not fount");
     }
 
 }

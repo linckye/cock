@@ -1,7 +1,7 @@
 package org.liquid.worker.client;
 
-import org.liquid.worker.client.model.CallFunctionRequest;
-import org.liquid.worker.client.model.CallFunctionResponse;
+import org.liquid.worker.client.models.CallFunctionRequest;
+import org.liquid.worker.client.models.CallFunctionResponse;
 
 /**
  * @author linckye 2018-08-09

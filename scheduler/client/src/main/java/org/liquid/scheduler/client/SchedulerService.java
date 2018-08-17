@@ -1,7 +1,7 @@
 package org.liquid.scheduler.client;
 
-import org.liquid.scheduler.client.model.ScheduleDagRequest;
-import org.liquid.scheduler.client.model.ScheduleDagResponse;
+import org.liquid.scheduler.client.models.ScheduleDagRequest;
+import org.liquid.scheduler.client.models.ScheduleDagResponse;
 
 /**
  * @author linckye 2018-08-09

@@ -1,8 +1,8 @@
 package org.liquid.worker.services;
 
 import org.liquid.worker.client.WorkerService;
-import org.liquid.worker.client.model.CallFunctionRequest;
-import org.liquid.worker.client.model.CallFunctionResponse;
+import org.liquid.worker.client.models.CallFunctionRequest;
+import org.liquid.worker.client.models.CallFunctionResponse;
 import org.springframework.stereotype.Service;
 
 /**

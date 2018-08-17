@@ -6,10 +6,10 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.liquid.client.model.Response;
+import org.liquid.client.models.Response;
 import org.springframework.stereotype.Component;
 
-import static org.liquid.client.model.Codes.*;
+import static org.liquid.client.models.Codes.*;
 import static org.liquid.common.utils.Blank.*;
 
 /**

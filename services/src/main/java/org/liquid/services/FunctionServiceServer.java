@@ -3,8 +3,8 @@ package org.liquid.services;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.liquid.client.FunctionService;
-import org.liquid.client.model.functions.GetFunctionRequest;
-import org.liquid.client.model.functions.GetFunctionResponse;
+import org.liquid.client.models.functions.GetFunctionRequest;
+import org.liquid.client.models.functions.GetFunctionResponse;
 import org.springframework.stereotype.Service;
 
 /**
