@@ -20,7 +20,7 @@ public class DagServiceServer
     @Override
     public GetDagResponse get(GetDagRequest getDagRequest) {
         // TODO
-        return new GetDagResponse().code(Codes.RESOURCE_NOT_FOUND).message("not fount");
+        return new GetDagResponse().code(Codes.NOT_FOUND).message("not fount");
     }
 
 }
