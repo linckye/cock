@@ -19,10 +19,18 @@ import static org.liquid.client.models.Codes.*;
 public class Response implements Serializable {
 
     /** 状态码. **/
-    private Integer code;
+    private Integer code = SUCCESS;
 
     /** 状态码额外说明 **/
     private String message;
+
+    public boolean successful() {
+        return code == SUCCESS;
+    }
+
+    public boolean failed() {
+        return code != SUCCESS;
+    }
 
     public <T extends Response> T code(Integer code) {
         this.code = code;
@@ -44,14 +52,6 @@ public class Response implements Serializable {
         @SuppressWarnings("unchecked")
         T t = (T) this;
         return t;
-    }
-
-    public boolean successful() {
-        return code == SUCCESS;
-    }
-
-    public boolean failed() {
-        return code != SUCCESS;
     }
 
 }
