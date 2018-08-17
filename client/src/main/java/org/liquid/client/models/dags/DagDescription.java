@@ -1,4 +1,4 @@
-package org.liquid.client.model.dags;
+package org.liquid.client.models.dags;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

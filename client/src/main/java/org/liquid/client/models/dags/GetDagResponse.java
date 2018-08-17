@@ -1,10 +1,10 @@
-package org.liquid.client.model.functions;
+package org.liquid.client.models.dags;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.experimental.Accessors;
-import org.liquid.client.model.Response;
+import org.liquid.client.models.Response;
 
 import java.io.Serializable;
 
@@ -15,10 +15,10 @@ import java.io.Serializable;
 @Accessors(chain = true, fluent = true)
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class GetFunctionResponse
+public class GetDagResponse
         extends Response
         implements Serializable {
 
-    private FunctionDescription functionDescription;
+    private DagDescription dagDescription;
 
 }

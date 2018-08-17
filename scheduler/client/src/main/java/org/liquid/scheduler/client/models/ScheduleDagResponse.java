@@ -1,10 +1,10 @@
-package org.liquid.worker.client.model;
+package org.liquid.scheduler.client.models;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.experimental.Accessors;
-import org.liquid.client.model.Request;
+import org.liquid.client.models.Response;
 
 import java.io.Serializable;
 
@@ -15,10 +15,7 @@ import java.io.Serializable;
 @Accessors(chain = true, fluent = true)
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class CallFunctionRequest
-        extends Request
+public class ScheduleDagResponse
+        extends Response
         implements Serializable {
-
-    private String functionName;
-
 }

@@ -1,4 +1,4 @@
-package org.liquid.client.model.functions;
+package org.liquid.client.models.functions;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

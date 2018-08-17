@@ -1,4 +1,4 @@
-package org.liquid.client.model;
+package org.liquid.client.models;
 
 /**
  * {@code Response} 状态码.

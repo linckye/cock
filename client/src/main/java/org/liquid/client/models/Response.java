@@ -1,11 +1,11 @@
-package org.liquid.client.model;
+package org.liquid.client.models;
 
 import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
-import static org.liquid.client.model.Codes.*;
+import static org.liquid.client.models.Codes.*;
 
 /**
  * {@code Request} 响应.

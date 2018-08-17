@@ -1,10 +1,10 @@
-package org.liquid.worker.client.model;
+package org.liquid.worker.client.models;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.experimental.Accessors;
-import org.liquid.client.model.Response;
+import org.liquid.client.models.Request;
 
 import java.io.Serializable;
 
@@ -15,7 +15,10 @@ import java.io.Serializable;
 @Accessors(chain = true, fluent = true)
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class CallFunctionResponse
-        extends Response
+public class CallFunctionRequest
+        extends Request
         implements Serializable {
+
+    private String functionName;
+
 }
