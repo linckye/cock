@@ -17,6 +17,6 @@ public interface Codes {
     int ILLEGAL_ARGUMENT = 1;
 
     /** 资源未找到. **/
-    int RESOURCE_NOT_FOUND = 2;
+    int NOT_FOUND = 2;
 
 }
