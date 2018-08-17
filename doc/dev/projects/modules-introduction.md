@@ -18,14 +18,14 @@
 - services：服务包
 - test：测试包
 - web：web 模块
-  - client：scheduler 客户端包
-  - controllers：scheduler 控制器包
+  - client：web 客户端包
+  - controllers：web 控制器包
   - deployer：web 发布包
   - repositories：web 存储包
   - services：web 服务包
 - worker：worker 模块
-  - client：客户端包
-  - core：核心包
-  - deployer：发布包
-  - repositories：存储包
-  - services：服务包
+  - client：worker 客户端包
+  - core：worker 核心包
+  - deployer：worker 发布包
+  - repositories：worker 存储包
+  - services：worker 服务包
