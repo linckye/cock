@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
 
     <dependencies>
-
         <!-- self -->
         <dependency>
             <groupId>org.liquid</groupId>
@@ -23,7 +22,6 @@
             <groupId>org.liquid</groupId>
             <artifactId>liquid-test</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>

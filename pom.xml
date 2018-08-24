@@ -11,7 +11,6 @@
     <modules>
         <module>client</module>
         <module>common</module>
-        <module>function-api/java</module>
         <module>repositories</module>
         <module>services</module>
         <module>test</module>
@@ -35,6 +34,7 @@
         <module>worker/core</module>
         <module>worker/deployer</module>
         <module>worker/repositories</module>
+        <module>worker/sdk/java</module>
         <module>worker/services</module>
     </modules>
 
@@ -72,11 +72,6 @@
             <dependency>
                 <groupId>org.liquid</groupId>
                 <artifactId>liquid-common</artifactId>
-                <version>${liquid.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.liquid</groupId>
-                <artifactId>liquid-function-api-java</artifactId>
                 <version>${liquid.version}</version>
             </dependency>
             <dependency>
@@ -170,6 +165,11 @@
             </dependency>
             <dependency>
                 <groupId>org.liquid</groupId>
+                <artifactId>liquid-sdk-java</artifactId>
+                <version>${liquid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquid</groupId>
                 <artifactId>liquid-worker-services</artifactId>
                 <version>${liquid.version}</version>
             </dependency>
@@ -186,6 +186,12 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>23.0</version>
+            </dependency>
+            <!-- rpc -->
+            <dependency>
+                <groupId>net.devh</groupId>
+                <artifactId>grpc-server-spring-boot-starter</artifactId>
+                <version>2.0.1.RELEASE</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

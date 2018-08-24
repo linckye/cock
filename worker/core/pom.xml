@@ -12,6 +12,11 @@
     <artifactId>liquid-worker-core</artifactId>
 
     <dependencies>
+        <!-- self -->
+        <dependency>
+            <groupId>org.liquid</groupId>
+            <artifactId>liquid-sdk-java</artifactId>
+        </dependency>
         <!-- spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

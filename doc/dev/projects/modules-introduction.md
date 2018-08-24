@@ -6,8 +6,6 @@
 - common：通用库
 - doc：文档
   - dev：开发者文档
-- function-api：function 对外接口
-  - java：java function 接口
 - repositories：存储包
 - scheduler：scheduler 模块
   - client：scheduler 客户端包
@@ -28,4 +26,6 @@
   - core：worker 核心包
   - deployer：worker 发布包
   - repositories：worker 存储包
+  - sdk：function sdk
+    - java：java function sdk
   - services：worker 服务包

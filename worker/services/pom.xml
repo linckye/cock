@@ -29,10 +29,6 @@
             <groupId>org.liquid</groupId>
             <artifactId>liquid-worker-core</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.liquid</groupId>
-            <artifactId>liquid-function-api-java</artifactId>
-        </dependency>
     </dependencies>
 
 </project>

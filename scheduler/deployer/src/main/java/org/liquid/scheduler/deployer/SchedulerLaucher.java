@@ -17,11 +17,9 @@ import org.springframework.context.annotation.ComponentScan;
 public class SchedulerLaucher {
 
     public static void main(String[] args) {
-        SchedulerService schedulerService = new SpringApplicationBuilder(SchedulerLaucher.class)
+        new SpringApplicationBuilder(SchedulerLaucher.class)
                 .web(WebApplicationType.NONE)
                 .run(args).getBean(SchedulerService.class);
-        System.out.println(schedulerService.schedule(null));
-        System.out.println(schedulerService.schedule(new ScheduleDagRequest().dagName("f")));
     }
 
 }

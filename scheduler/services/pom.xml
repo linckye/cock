@@ -12,11 +12,14 @@
     <artifactId>liquid-scheduler-services</artifactId>
 
     <dependencies>
-
         <!-- self -->
         <dependency>
             <groupId>org.liquid</groupId>
             <artifactId>liquid-services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.liquid</groupId>
+            <artifactId>liquid-scheduler-client</artifactId>
         </dependency>
         <dependency>
             <groupId>org.liquid</groupId>
@@ -26,11 +29,6 @@
             <groupId>org.liquid</groupId>
             <artifactId>liquid-scheduler-repositories</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.liquid</groupId>
-            <artifactId>liquid-scheduler-client</artifactId>
-        </dependency>
-
     </dependencies>
 
 </project>
